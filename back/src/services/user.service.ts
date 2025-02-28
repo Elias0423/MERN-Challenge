@@ -7,7 +7,7 @@ class UserService {
     if (oldUser) {
       return DEFAULT_RESPONSE(200, true, 'Usuario ya registrado', oldUser);
     } else {
-      const newUser = new UserModel({ firstName: data.firstName, lastName: data.lastName, email: data.email });
+      const newUser = new UserModel(data);
       await newUser.save();
       return DEFAULT_RESPONSE(200, true, 'Usuario registrado', newUser);
     }
