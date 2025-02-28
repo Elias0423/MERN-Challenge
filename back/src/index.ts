@@ -1,6 +1,7 @@
 import express, { Application, json, urlencoded } from 'express';
 import router from './routes/router';
 import 'dotenv/config';
+import { connectDB } from './db/mongoDB';
 
 class Index {
   app: Application;
@@ -11,6 +12,7 @@ class Index {
     this.app = express();
     this.app.use(json());
     this.app.use(urlencoded({ extended: true }));
+    connectDB();
 
     this.app.use(router);
 
