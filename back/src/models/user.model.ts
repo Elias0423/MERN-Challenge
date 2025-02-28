@@ -1,9 +1,17 @@
 import { Schema, model } from 'mongoose';
 
-const userSchema = new Schema({
+interface IUsuario {
+  firstName: string;
+  lastName: string;
+  email: string;
+}
+
+const userSchema = new Schema<IUsuario>({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true },
 });
 
-export const UserModal = model('User', userSchema, 'usuarios');
+const UserModel = model('User', userSchema, 'usuarios');
+
+export { UserModel, IUsuario };
