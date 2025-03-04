@@ -1,5 +1,6 @@
 import express, { Application, json, urlencoded } from 'express';
 import router from './routes/router';
+import cors from 'cors';
 import 'dotenv/config';
 import { connectDB } from './db/mongoDB';
 
@@ -11,6 +12,7 @@ class Index {
     const port = Number(process.env.PORT) || 3000;
     this.app = express();
     this.app.use(json());
+    this.app.use(cors());
     this.app.use(urlencoded({ extended: true }));
     connectDB();
 
