@@ -1,7 +1,7 @@
 {
-  "name": "shortener",
+  "name": "back",
   "version": "1.0.0",
-  "description": "Web service for shortened urls",
+  "description": "Web service for products",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
